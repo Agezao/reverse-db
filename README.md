@@ -119,6 +119,6 @@ You must setup a database called `sequelize_auto_test` first, edit the `test/con
     # sqlite only
     npm run test-sqlite
 
-## Projects Using Sequelize-Auto
+## This project was based on Sequelize-Auto
 
-* [Sequelizer](https://github.com/andyforever/sequelizer)
+* [Sequelize-Auto](https://github.com/sequelize/sequelize-auto)
