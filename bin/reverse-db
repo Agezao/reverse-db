@@ -13,7 +13,7 @@ var Sequelize = require('sequelize');
 var _ = Sequelize.Utils._;
 
 var argv = require('yargs')
-  .usage('Usage: reverse-db -h <host> -d <database> -u <user> -x [password] -p [port]  --dialect [dialect] -c [/path/to/config] -o [/path/to/models] -t [tableName]')
+  .usage('Usage: reverse-db -h <host> -d <database> -u <user> -x [password] -p [port] --type [typeOfFile] --dialect [dialect] -c [/path/to/config] -o [/path/to/models] -t [tableName]')
   .demand(['h', 'd'])
   .alias('h', 'host')
   .alias('d', 'database')
@@ -93,7 +93,7 @@ function getDefaultPort(dialect) {
     }
 }
 
-var auto = new reverseDb(argv.d, argv.u, (!! argv.x ? ('' + argv.x) : null), configFile);
+var auto = new reverseDb(argv.d, argv.u, (!! argv.x ? ('' + argv.x) : null), argv.type, configFile);
 
 auto.run(function (err) {
   if (err) throw err;
