@@ -36,15 +36,8 @@ Example for MSSQL
       -u, --user        Username for database.
       -x, --pass        Password for database.
       -p, --port        Port number for database.
-      -c, --config      JSON file for Sequelize's constructor "options" flag object as defined here: https://sequelize.readthedocs.org/en/latest/api/sequelize/
       -o, --output      What directory to place the models.
       -e, --dialect     The dialect/engine that you're using: postgres, mysql, sqlite
-      -a, --additional  Path to a json file containing model definitions (for all tables) which are to be defined within a model's configuration parameter. For more info: https://sequelize.readthedocs.org/en/latest/docs/models-definition/#configuration
-      -t, --tables      Comma-separated names of tables to import
-      -T, --skip-tables Comma-separated names of tables to skip
-      -C, --camel       Use camel case to name models and fields
-      -n, --no-write    Prevent writing the models to disk.
-      -s, --schema      Database schema from which to retrieve tables
 
 ## Example
 
@@ -66,59 +59,7 @@ Produces a file/files such as ./models/SkillLevels.js which looks like:
 
 Which makes it easy for you to simply import and use it.
 
-## Configuration options
 
-For the `-c, --config` option the following JSON/configuration parameters are defined by Sequelize's `options` flag within the constructor. For more info:
+---
 
-[https://sequelize.readthedocs.org/en/latest/api/sequelize/](https://sequelize.readthedocs.org/en/latest/api/sequelize/)
-
-## Programmatic API
-
-```js
-var SequelizeAuto = require('sequelize-auto')
-var auto = new SequelizeAuto('database', 'user', 'pass');
-
-auto.run(function (err) {
-  if (err) throw err;
-
-  console.log(auto.tables); // table list
-  console.log(auto.foreignKeys); // foreign key list
-});
-
-With options:
-var auto = new SequelizeAuto('database', 'user', 'pass', {
-    host: 'localhost',
-    dialect: 'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
-    directory: false, // prevents the program from writing to disk
-    port: 'port',
-    additional: {
-        timestamps: false
-        //...
-    },
-    tables: ['table1', 'table2', 'table3']
-    //...
-})
-```
-
-## Testing
-
-You must setup a database called `sequelize_auto_test` first, edit the `test/config.js` file accordingly, and then enter in any of the following:
-
-    # for all
-    npm run test
-
-    # mysql only
-    npm run test-mysql
-
-    # postgres only
-    npm run test-postgres
-
-    # postgres native only
-    npm run test-postgres-native
-
-    # sqlite only
-    npm run test-sqlite
-
-## This project was based on Sequelize-Auto
-
-* [Sequelize-Auto](https://github.com/sequelize/sequelize-auto)
+This project was based on [Sequelize-Auto](https://github.com/sequelize/sequelize-auto)
