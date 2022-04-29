@@ -46,7 +46,7 @@
   "author": "Daniel Durante <me@danieldurante.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.1.5",
+    "async": "^2.6.4",
     "eslint": "^3.19.0",
     "graceful-fs-extra": "^2.0.0",
     "mkdirp": "^0.5.1",
